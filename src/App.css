@@ -14,13 +14,13 @@ header {
   background: rgba(255, 6, 7, 0.03);
   grid-area: header;
 }
-nav {
+.nav {
   border: rgba(255, 0, 0, 0, 1);
   background: rgba(255, 6, 7, 0.03);
   grid-area: nav;
 }
 
-main {
+.main {
   border: 2px solid rgb(38, 34, 97);
   background: rgba(97, 138, 64, 0.1);
   grid-area: main;
