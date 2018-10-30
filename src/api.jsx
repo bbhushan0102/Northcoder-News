@@ -19,3 +19,9 @@ export const getArticlesByTopic = slug => {
     return data.topicArticles;
   });
 };
+
+export const postArticle = async topic => {
+  const { data } = await axios.post(`${BASE_URL}/topics/${topic}/articles`);
+
+  return data;
+};

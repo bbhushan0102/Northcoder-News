@@ -3,17 +3,18 @@ import { Component } from "react";
 import { Link, navigate } from "@reach/router";
 import * as api from "../api";
 import "../image.css";
+import PostArticle from "./PostArticle";
 
 class Articles extends Component {
   state = {
     articles: []
   };
   render() {
-    console.log(this.state);
     const { articles } = this.state;
     return (
       <main>
         <div>
+          <PostArticle addArticle={this.addArticle} />
           {articles &&
             articles.map(article => {
               return (
@@ -52,11 +53,38 @@ class Articles extends Component {
   componentDidMount() {
     this.fetchArticles();
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps.topic !== this.props.topic) {
+      this.fetchArticles();
+    }
+  }
   fetchArticles = () => {
-    api.getArticles().then(articlesData => {
-      console.log(articlesData);
+    this.props.topic
+      ? api
+          .getArticlesByTopic(this.props.topic)
+          .then(articles => {
+            this.setState({
+              articles
+            });
+          })
+          .catch(error => {
+            navigate("/error", { replace: true });
+          })
+      : api
+          .getArticles()
+          .then(articlesData => {
+            this.setState({
+              articles: articlesData
+            });
+          })
+          .catch(error => {
+            navigate("/error", { replace: true });
+          });
+  };
+  addArticle = (body, title) => {
+    api.postArticle("football", { body, title }).then(article => {
       this.setState({
-        articles: articlesData
+        articles: [article, ...this.state.articles]
       });
     });
   };
