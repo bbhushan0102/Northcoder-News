@@ -17,10 +17,7 @@ class PostArticle extends Component {
         <label htmlFor="title">Title</label>
         <input type="text" id="title" onChange={this.handleChange} />
         <select id={"topic"} onChange={this.handleChange}>
-          <option selected value="football">
-            {" "}
-            Football{" "}
-          </option>
+          <option value="football"> Football </option>
           <option value="cooking"> Cooking </option>
           <option value="coding"> Coding </option>
         </select>

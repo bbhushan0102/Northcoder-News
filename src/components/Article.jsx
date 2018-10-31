@@ -3,12 +3,15 @@ import React, { Component } from "react";
 import { navigate } from "@reach/router";
 // import "./App.css";
 import * as api from "../api";
+import Comments from "../components/Comments";
 class Article extends Component {
   state = {
     article: {}
   };
   render() {
     let article = this.state.article;
+    // console.log(this.props.user);
+
     return (
       <main>
         {" "}
@@ -16,6 +19,12 @@ class Article extends Component {
           <h1>{article.title}</h1>
         </div>
         <div>{article.body}</div>
+        {this.state.article._id && (
+          <Comments
+            article_id={this.state.article._id}
+            user={this.props.user}
+          />
+        )}
       </main>
     );
   }
