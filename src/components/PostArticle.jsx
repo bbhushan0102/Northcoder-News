@@ -1,12 +1,12 @@
 import React from "react";
 import { Component } from "react";
-import { Link, navigate } from "@reach/router";
-import * as api from "../api";
+// import { Link, navigate } from "@reach/router";
+// import * as api from "../api";
 class PostArticle extends Component {
   state = {
     article: "",
     title: "",
-    value: ""
+    topic: ""
   };
   render() {
     console.log(this.state.article);
@@ -16,7 +16,7 @@ class PostArticle extends Component {
         <input type="text" id="article" onChange={this.handleChange} />
         <label htmlFor="title">Title</label>
         <input type="text" id="title" onChange={this.handleChange} />
-        <select onChange={this.handleChange}>
+        <select id={"topic"} onChange={this.handleChange}>
           <option selected value="football">
             {" "}
             Football{" "}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "./components/Nav";
 import Topics from "./components/Topics";
 import Articles from "./components/Articles";
+import Article from "./components/Article";
 import { Router } from "@reach/router";
 
 import "./App.css";
@@ -22,7 +23,7 @@ class App extends Component {
         <Router className="main">
           <Topics path="/topics" />
           <Articles path="/topics/:topic" />
-          <Articles path="/articles/:id" />
+          <Article path="/articles/:article_id" />
           <Articles path="/" />
         </Router>
       </div>

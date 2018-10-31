@@ -25,3 +25,13 @@ export const postArticle = async topic => {
 
   return data;
 };
+export const getArticle = article_id => {
+  return axios
+    .get(`${BASE_URL}/articles/${article_id}`)
+    .then(({ data }) => data.article);
+};
+export const vote = (id, direction) => {
+  return axios
+    .patch(`${BASE_URL}/articles/${id}?vote=${direction}`)
+    .then(() => console.log("voted!"));
+};

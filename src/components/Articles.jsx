@@ -4,6 +4,7 @@ import { Link, navigate } from "@reach/router";
 import * as api from "../api";
 import "../image.css";
 import PostArticle from "./PostArticle";
+import Voter from "./Voter";
 
 class Articles extends Component {
   state = {
@@ -21,16 +22,19 @@ class Articles extends Component {
                 <div key={article._id}>
                   <div>
                     <div>
-                      <Link to={`/articles/${article._id}`}>
+                      <Link to={`/articles/${article._id}`} >
                         <h3>{article.title}</h3>
                       </Link>
                     </div>
                     <div>
-                      User Name:
+                      By:
                       {article.created_by.name}{" "}
                     </div>
                     Create at: {article.created_at}
                     <div>
+                      <div>
+                        <Voter id={article._id} vote={article.votes} />
+                      </div>
                       <h3>
                         {" "}
                         comments:
