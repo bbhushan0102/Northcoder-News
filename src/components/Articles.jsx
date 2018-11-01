@@ -8,21 +8,32 @@ import Voter from "./Voter";
 
 class Articles extends Component {
   state = {
-    articles: []
+    articles: [],
+    msg: ""
   };
   render() {
     const { articles } = this.state;
+    if (this.state.msg === "err")
+      return (
+        <div>
+          <h1>add Article</h1>{" "}
+          <Link to="/">
+            <button>Back</button>
+          </Link>
+        </div>
+      );
     return (
       <main>
         <div>
           <PostArticle addArticle={this.addArticle} />
+
           {articles &&
             articles.map(article => {
               return (
                 <div key={article._id}>
                   <div>
                     <div>
-                      <Link to={`/articles/${article._id}`} >
+                      <Link to={`/articles/${article._id}`}>
                         <h3>{article.title}</h3>
                       </Link>
                     </div>
@@ -85,12 +96,20 @@ class Articles extends Component {
             navigate("/error", { replace: true });
           });
   };
-  addArticle = (body, title) => {
-    api.postArticle("football", { body, title }).then(article => {
-      this.setState({
-        articles: [article, ...this.state.articles]
-      });
-    });
+  addArticle = ({ body, title, belongs_to }) => {
+    !body
+      ? this.setState({ msg: "err" })
+      : api
+          .postArticle(belongs_to, {
+            body,
+            title,
+            created_by: this.props.user._id
+          })
+          .then(article => {
+            this.setState({
+              articles: [article, ...this.state.articles]
+            });
+          });
   };
 }
 export default Articles;

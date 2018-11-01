@@ -6,11 +6,12 @@ import * as api from "../api";
 import Comments from "../components/Comments";
 class Article extends Component {
   state = {
-    article: {}
+    article: {},
+    loading: true
   };
   render() {
     let article = this.state.article;
-    // console.log(this.props.user);
+    if (this.state.loading) return <h1>Loading....</h1>;
 
     return (
       <main>
@@ -36,7 +37,8 @@ class Article extends Component {
       .getArticle(this.props.article_id)
       .then(article => {
         this.setState({
-          article
+          article: article,
+          loading: false
         });
       })
       .catch(error => {

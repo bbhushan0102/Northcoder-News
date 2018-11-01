@@ -32,7 +32,8 @@ class Comments extends Component {
                   Created By:
                   {comment.created_by.name}{" "}
                 </div>
-                <Delete id={comment._id} />
+                {/* <Delete id={comment._id} /> */}
+                <Delete deleteComment={this.deleteComment} id={comment._id} />
               </div>
             );
           })}
@@ -62,10 +63,19 @@ class Comments extends Component {
         this.setState({
           comments: [comment, ...this.state.comments]
         });
+      })
+      .catch(error => {
+        navigate("/error", { replace: true });
       });
-    // .catch(error => {
-    //   navigate("/error", { replace: true });
-    // });
+  };
+  deleteComment = commentId => {
+    api.deleteCommentById(commentId).then(() => {
+      this.setState({
+        comments: this.state.comments.filter(
+          comment => comment._id !== commentId
+        )
+      });
+    });
   };
 }
 export default Comments;

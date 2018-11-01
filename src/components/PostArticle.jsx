@@ -4,19 +4,18 @@ import { Component } from "react";
 // import * as api from "../api";
 class PostArticle extends Component {
   state = {
-    article: "",
+    body: "",
     title: "",
-    topic: ""
+    belongs_to: ""
   };
   render() {
-    console.log(this.state.article);
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="article">Post Article</label>
-        <input type="text" id="article" onChange={this.handleChange} />
+        <label htmlFor="body">Post Article</label>
+        <input type="text" id="body" onChange={this.handleChange} />
         <label htmlFor="title">Title</label>
         <input type="text" id="title" onChange={this.handleChange} />
-        <select id={"topic"} onChange={this.handleChange}>
+        <select id={"belongs_to"} onChange={this.handleChange}>
           <option value="football"> Football </option>
           <option value="cooking"> Cooking </option>
           <option value="coding"> Coding </option>
@@ -27,10 +26,9 @@ class PostArticle extends Component {
   }
   handleSubmit = event => {
     event.preventDefault();
-    // this.props.addArticle(this.state);
+    this.props.addArticle(this.state);
   };
   handleChange = event => {
-    console.log(this.state);
     const { id, value } = event.target;
     this.setState({
       [id]: value

@@ -22,7 +22,7 @@ class Topics extends Component {
         {topics.map(topic => {
           return (
             <div key={topic._id} className="nav">
-              <Link to={`/topics/${topic.slug}`}>
+              <Link to={`/topics/${topic.slug}`} className="button">
                 <img
                   src={image[`${topic.slug}`] || ""}
                   alt={topic.title}
