@@ -9,17 +9,12 @@ import Voter from "./Voter";
 
 class Articles extends Component {
   state = {
-    articles: [],
-    msg: ""
+    articles: []
+    // msg: ""
   };
   render() {
     const { articles } = this.state;
-    if (this.state.msg === "err")
-      return (
-        <div>
-          <h1>add Article</h1> <Link to="/">Back</Link>
-        </div>
-      );
+   
     return (
       <main>
         <PostArticle addArticle={this.addArticle} />
@@ -94,19 +89,17 @@ class Articles extends Component {
           });
   };
   addArticle = ({ body, title, belongs_to }) => {
-    !body
-      ? this.setState({ msg: "err" })
-      : api
-          .postArticle(belongs_to, {
-            body,
-            title,
-            created_by: this.props.user._id
-          })
-          .then(article => {
-            this.setState({
-              articles: [article, ...this.state.articles]
-            });
-          });
+    api
+      .postArticle(belongs_to, {
+        body,
+        title,
+        created_by: this.props.user._id
+      })
+      .then(article => {
+        this.setState({
+          articles: [article, ...this.state.articles]
+        });
+      });
   };
 }
 export default Articles;
