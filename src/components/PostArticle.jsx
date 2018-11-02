@@ -1,5 +1,6 @@
 import React from "react";
 import { Component } from "react";
+import "../App.css";
 // import { Link, navigate } from "@reach/router";
 // import * as api from "../api";
 class PostArticle extends Component {
@@ -10,16 +11,20 @@ class PostArticle extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="body">Post Article</label>
-        <input type="text" id="body" onChange={this.handleChange} />
+      <form onSubmit={this.handleSubmit} className="div">
         <label htmlFor="title">Title</label>
+        <br />
         <input type="text" id="title" onChange={this.handleChange} />
-        <select id={"belongs_to"} onChange={this.handleChange}>
+        <select id={"belongs_to"} onChange={this.handleChange} inline>
+          {" "}
+          <br />
           <option value="football"> Football </option>
           <option value="cooking"> Cooking </option>
           <option value="coding"> Coding </option>
         </select>
+        <br />
+        <label htmlFor="body">Post Article</label> <br />
+        <textarea type="text" id="body" onChange={this.handleChange} /> <br />
         <button>Post</button>
       </form>
     );

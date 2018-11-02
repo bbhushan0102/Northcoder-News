@@ -21,24 +21,24 @@ header {
 }
 
 .main {
-  border: 2px solid rgb(38, 34, 97);
+  border: 2px solid rgba(190, 190, 196, 0.815);
   background: rgba(97, 138, 64, 0.1);
   grid-area: main;
 }
-section {
-  border: 2px solid rgb(63, 54, 80);
+.section {
+  border: 2px solid rgb(231, 229, 235);
   background: rgba(97, 138, 64, 0.1);
   grid-area: section;
 }
 footer {
-  border: 2px solid rgb(100, 167, 86);
+  border: 2px solid rgb(192, 196, 191);
   background: rgba(97, 138, 64, 0.1);
   grid-area: footer;
 }
 .div {
   background-color: lightgrey;
   width: auto;
-  border: 2px solid green;
+  border: 2px solid rgb(245, 244, 255);
   padding: 5px;
   margin: 25px;
 }

@@ -16,7 +16,8 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    user: {}
+    user: {},
+    toggle: false
   };
   render() {
     return (
@@ -26,8 +27,20 @@ class App extends Component {
           <h1>NC News</h1>
         </header>
         <Nav />
-        {/* <Logout /> */}
-        <Login login={this.login} user={this.state.user} />
+
+        {this.state.toggle ? (
+          <section>
+            {" "}
+            <Logout toggleLogout={this.toggleLogout} />
+          </section>
+        ) : (
+          <Login
+            login={this.login}
+            user={this.state.user}
+            className="section"
+          />
+        )}
+
         {this.state.user._id && (
           <Router className="main">
             <NotFound path="/error" />
@@ -51,12 +64,19 @@ class App extends Component {
       .getUser(username)
       .then(user => {
         this.setState({
-          user
+          user,
+          toggle: true
         });
       })
       .catch(error => {
         navigate("/error", { replace: true });
       });
+  };
+  toggleLogout = () => {
+    this.setState({
+      user:{},
+      toggle: false
+    });
   };
 }
 

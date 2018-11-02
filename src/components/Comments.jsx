@@ -8,7 +8,8 @@ import Delete from "../components/Delete";
 
 class Comments extends Component {
   state = {
-    comments: []
+    comments: [],
+    msg: ""
   };
   render() {
     let comments = this.state.comments;
@@ -17,7 +18,7 @@ class Comments extends Component {
       <main>
         <div>
           <h1> Comments</h1>
-          <div className="div">
+          <div>
             <PostComment addComment={this.addComment} />
             <p>Post your comment</p>
           </div>

@@ -3,6 +3,7 @@ import { Component } from "react";
 import { Link, navigate } from "@reach/router";
 import * as api from "../api";
 import "../image.css";
+
 import PostArticle from "./PostArticle";
 import Voter from "./Voter";
 
@@ -16,17 +17,13 @@ class Articles extends Component {
     if (this.state.msg === "err")
       return (
         <div>
-          <h1>add Article</h1>{" "}
-          <Link to="/">
-            <button>Back</button>
-          </Link>
+          <h1>add Article</h1> <Link to="/">Back</Link>
         </div>
       );
     return (
       <main>
-        <div>
-          <PostArticle addArticle={this.addArticle} />
-
+        <PostArticle addArticle={this.addArticle} />
+        <div className="div">
           {articles &&
             articles.map(article => {
               return (
