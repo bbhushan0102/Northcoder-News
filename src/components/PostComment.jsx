@@ -13,7 +13,6 @@ class PostComment extends Component {
   }
   handleSubmit = event => {
     event.preventDefault();
-
     this.props.addComment(this.state.body);
   };
   handleChange = event => {

@@ -14,7 +14,7 @@ class Articles extends Component {
   };
   render() {
     const { articles } = this.state;
-   
+
     return (
       <main>
         <PostArticle addArticle={this.addArticle} />

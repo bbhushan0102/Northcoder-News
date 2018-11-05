@@ -11,7 +11,7 @@ class Topics extends Component {
     topics: []
   };
   render() {
-    let image = {
+    const image = {
       coding: coding,
       football: football,
       cooking: cooking

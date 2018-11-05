@@ -3,7 +3,7 @@
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 3fr 1fr 8fr 1fr;
+  grid-template-rows: 1fr 1fr 8fr 1fr;
   grid-template-areas:
     "header header" "nav nav"
     "section main" "footer footer";
@@ -45,4 +45,3 @@ footer {
 .text {
   text-align: justify;
 }
-

@@ -74,7 +74,7 @@ class App extends Component {
   };
   toggleLogout = () => {
     this.setState({
-      user:{},
+      user: {},
       toggle: false
     });
   };

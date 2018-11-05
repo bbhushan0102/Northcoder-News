@@ -12,7 +12,7 @@ class Comments extends Component {
     msg: ""
   };
   render() {
-    let comments = this.state.comments;
+    const comments = this.state.comments;
 
     return (
       <main>

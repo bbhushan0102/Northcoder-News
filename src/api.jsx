@@ -21,8 +21,12 @@ export const getArticlesByTopic = slug => {
 };
 
 export const postArticle = async (topic, article) => {
-  const { data } = await axios.post(`${BASE_URL}/topics/${topic}/articles`,article);
-  return data;
+  const { data } = await axios.post(
+    `${BASE_URL}/topics/${topic}/articles`,
+    article
+  );
+
+  return data.newArticle;
 };
 export const getArticle = article_id => {
   return axios
@@ -46,7 +50,7 @@ export const postComment = (id, body, created_by) => {
 };
 export const getUsers = async () => {
   const { data } = await axios.get(`${BASE_URL}/users`);
-  console.log(data);
+
   return data.users;
 };
 export const voteComment = (id, direction) => {

@@ -10,7 +10,7 @@ class Users extends Component {
   };
 
   render() {
-    let { users } = this.state;
+    const { users } = this.state;
     console.log(users);
     return (
       <main>
