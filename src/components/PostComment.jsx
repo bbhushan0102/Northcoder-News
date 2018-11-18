@@ -5,7 +5,8 @@ class PostComment extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="div">
+        <p>Post your comment</p>
         <input id="comment" type="text" onChange={this.handleChange} />
         <button>Post Comment</button>
       </form>

@@ -11,10 +11,11 @@
 
 header {
   border: rgba(255, 0, 0, 0, 1);
-  background: rgba(255, 6, 7, 0.03);
+  background: rgba(26, 111, 168, 0.03);
   grid-area: header;
 }
 .nav {
+  display: block;
   border: rgba(255, 0, 0, 0, 1);
   background: rgba(255, 6, 7, 0.03);
   grid-area: nav;

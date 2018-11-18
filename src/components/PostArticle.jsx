@@ -1,7 +1,8 @@
 import React from "react";
 import { Component } from "react";
-import "../App.css";
-import "./input.css";
+// import "../App.css";
+// import "./input.css";
+import "./form.css";
 // import { Link, navigate } from "@reach/router";
 // import * as api from "../api";
 class PostArticle extends Component {
@@ -12,11 +13,9 @@ class PostArticle extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="div">
-        <label htmlFor="title">Title</label>
-        <br />
-        <input type="text" id="title" onChange={this.handleChange} />
-        <select id={"belongs_to"} onChange={this.handleChange}>
+      <form onSubmit={this.handleSubmit}>
+        <label htmlFor="topic">Choose Article Topic</label> <br />
+        <select id={"belongs_to"} onChange={this.handleChange} className="text">
           {" "}
           <br />
           <option value="football"> Football </option>
@@ -24,11 +23,25 @@ class PostArticle extends Component {
           <option value="coding"> Coding </option>
         </select>
         <br />
-        <label htmlFor="body">Post Article</label>
+        <label htmlFor="title">Article Title</label>
         <br />
-        <textarea type="text" id="body" onChange={this.handleChange} />
+        <input
+          type="text"
+          id="title"
+          onChange={this.handleChange}
+          className="text"
+        />{" "}
         <br />
-        <button>Post</button>
+        <label htmlFor="body">Write Article</label>
+        <br />
+        <textarea
+          type="text"
+          id="body"
+          onChange={this.handleChange}
+          className="text"
+        />
+        <br />
+        <button className="submit">Post an Article</button>
       </form>
     );
   }

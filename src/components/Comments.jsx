@@ -20,8 +20,7 @@ class Comments extends Component {
           <h1> Comments</h1>
           <div>
             <PostComment addComment={this.addComment} />
-            <p>Post your comment</p>
-          </div>
+            </div>
           {comments.map(comment => {
             return (
               <div key={comment._id} className="div">

@@ -9,11 +9,12 @@ import Voter from "./Voter";
 
 class Articles extends Component {
   state = {
-    articles: []
-    // msg: ""
+    articles: [],
+    loading: true
   };
   render() {
     const { articles } = this.state;
+    if (this.state.loading) return <h1>Loading ....</h1>;
 
     return (
       <main>
@@ -71,7 +72,8 @@ class Articles extends Component {
           .getArticlesByTopic(this.props.topic)
           .then(articles => {
             this.setState({
-              articles
+              articles,
+              loading: false
             });
           })
           .catch(error => {
@@ -81,7 +83,8 @@ class Articles extends Component {
           .getArticles()
           .then(articlesData => {
             this.setState({
-              articles: articlesData
+              articles: articlesData,
+              loading: false
             });
           })
           .catch(error => {
