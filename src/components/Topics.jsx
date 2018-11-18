@@ -24,7 +24,10 @@ class Topics extends Component {
             <div key={topic._id} className="nav">
               <Link to={`/topics/${topic.slug}`} className="button">
                 <img
-                  src={image[`${topic.slug}`] || ""}
+                  src={
+                    image[`${topic.slug}`] ||
+                    "http://tccl.libnet.info/images/events/tccl/Movie_night.jpg"
+                  }
                   alt={topic.title}
                   className="img"
                   height="300"

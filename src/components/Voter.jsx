@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import "../App.css";
+//import thumpsUP from "../image/thumpsUP.jpeg";
 
 class Voter extends Component {
   state = {
@@ -14,7 +15,7 @@ class Voter extends Component {
       <div className="vote">
         <p>Votes: {vote + this.state.voteMod}</p>
         <button onClick={() => this.changeVote("up")} disabled={voteMod === 1}>
-          up
+          UP
         </button>
         <button
           onClick={() => {
@@ -22,7 +23,7 @@ class Voter extends Component {
           }}
           disabled={voteMod === -1}
         >
-          down
+          DOWN
         </button>
       </div>
     );
